@@ -1,0 +1,99 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopEasy - Enhanced Store</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🛒 E--::>mart</h1>
+    <nav class="main-nav">
+      <button data-cat="all">All</button>
+      <button data-cat="Electronics">Electronics</button>
+      <button data-cat="Clothing">Clothing</button>
+      <button data-cat="Accessories">Accessories</button>
+      <button data-cat="Home">Home</button>
+      <!-- add more category buttons -->
+      <button id="buyAgain">Buy Again</button>
+    </nav>
+    <div class="controls">
+      <input type="search" id="searchInput" placeholder="Search products…"  onkeypress="handleSearchKey(event)"/>
+      <select id="priceSort">
+        <option value="default">Sort by Price</option>
+        <option value="low-high">Low to High</option>
+        <option value="high-low">High to Low</option>
+      </select>
+      <div class="track" onclick="openTrack()">Track Order</div>
+      <div class="cart" onclick="toggleCartModal()">🛍️ Cart (<span id="cart-count">0</span>)</div>
+      <div class="account" onclick="toggleAccountMenu()">👤 Account</div>
+     <div id="accMenu" class="account-menu hidden">
+  <p><strong>User</strong></p>
+  <button onclick="view('orders')">Orders</button>
+  <button onclick="view('liked')">Liked Items</button>
+  <button onclick="logout()">Logout</button>
+</div>
+
+    </div>
+  </header>
+
+  <main>
+    <section id="product-grid"></section>
+  </main>
+
+  <div id="cartModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close" onclick="toggleCartModal()">&times;</span>
+      <h2>Your Cart</h2>
+      <ul id="cart-items"></ul>
+      <p>Total: ₹<span id="cart-total">0</span></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  
+
+<!-- Cart Modal -->
+<div id="cartModal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close" onclick="toggleCartModal()">&times;</span>
+    <h2>Your Cart</h2>
+    <div id="cart-items" class="cart-items-grid"></div>
+  </div>
+</div>
+
+<!-- Product Detail Modal -->
+<div id="productDetailModal"></div>
+
+<!-- Product Detail Popup -->
+<div id="productDetailModal" class="modal hidden">
+  <div class="modal-content detail-modal-content">
+    <span class="close" onclick="closeProductDetail()">&times;</span>
+    <img id="detail-img" src="" alt="Product Image" />
+    <h2 id="detail-title"></h2>
+    <p id="detail-description"></p>
+    <p><strong>Price:</strong> ₹<span id="detail-price"></span></p>
+    <div class="rating">⭐⭐⭐⭐☆ (4.2)</div>
+    <div class="popup-actions">
+      <button onclick="addToCart(currentDetailId)">Add to Cart</button>
+      <button onclick="buyNow(currentDetailId)">Buy Now</button>
+    </div>
+    <div class="reviews">
+      <h3>Reviews</h3>
+      <ul>
+        <li>"Great product!" - ⭐⭐⭐⭐</li>
+        <li>"Good quality and fast delivery." - ⭐⭐⭐⭐⭐</li>
+        <li>"Value for money." - ⭐⭐⭐⭐</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
+
+
