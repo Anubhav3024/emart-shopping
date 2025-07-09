@@ -8,7 +8,7 @@ for (let i = 0; i < 60; i++) {
     title: `${cat} Product ${i + 1}`,
     price: Math.floor(Math.random() * 1500) + 500,
     category: cat,
-    image: `assets/images/p${(i % 38) + 1}.jpg`,
+    image: `/images/p${(i % 38) + 1}.jpg`,
     description: `This is a top-quality ${cat} item. Durable, modern and highly rated by customers.`
   });
   liked: true
